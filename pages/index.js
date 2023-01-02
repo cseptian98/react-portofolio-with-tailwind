@@ -28,7 +28,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main className="bg-white px-10 md:px-20 lg:px-40 dark:bg-slate-800">
+      <main className="bg-gray-100 px-10 md:px-20 lg:px-35 dark:bg-slate-800">
         <section className="min-h-screen">
           <nav className="py-10 mb-4 flex justify-between">
             <h1 className="text-2xl font-burtons text-teal-600 dark:text-sky-400">
@@ -53,7 +53,7 @@ const Home = () => {
                   className="bg-gradient-to-r from-cyan-500 to-teal-400 text-white px-4 py-2 rounded-md ml-8 dark:bg-gradient-to-br dark:from-sky-900 dark:to-sky-600"
                   href="#portfolio"
                 >
-                  Resume
+                  Projects
                 </a>
               </li>
             </ul>
@@ -65,7 +65,7 @@ const Home = () => {
             <h3 className="text-2xl py-2 md:text-3xl dark:text-slate-100">
               Developer and Engineer
             </h3>
-            <p className="text-md py-5 leading-8 text-gray-800 md:text-xl max-w-2xl mx-auto dark:text-slate-100">
+            <p className="text-md py-5 leading-8 text-gray-800 md:text-xl max-w-3xl mx-auto dark:text-slate-100">
               A young competent and professional software engineer. Be able to
               work in the public and private sectors. Well-organized,
               hard-working, and willing to learn more. Working well in both
@@ -82,7 +82,9 @@ const Home = () => {
             />
             <AiFillLinkedin
               className="cursor-pointer"
-              onClick={() => window.open("https://www.linkedin.com/in/cseptian/", "_blank")}
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/cseptian/", "_blank")
+              }
             />
             <AiFillInstagram
               className="cursor-pointer"
@@ -96,17 +98,17 @@ const Home = () => {
 
         <section>
           <div>
-            <h3 className="text-3xl py-1 dark:text-slate-100">
+            <h3 className="text-3xl py-1 text-teal-600 dark:text-sky-400 font-bold">
               Services I Offer
             </h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-slate-100">
               Since the beginning of my journey as a frontend developer, I`ve
               done work for{" "}
-              <span className="text-sky-700 font-bold dark:text-sky-400">
+              <span className="text-sky-700 font-bold dark:text-sky-300">
                 Dicoding
               </span>{" "}
               as an{" "}
-              <span className="text-sky-700 font-bold dark:text-sky-400">
+              <span className="text-sky-700 font-bold dark:text-sky-300">
                 External Code Reviewer
               </span>{" "}
               and collaborated with talented people in my current job at{" "}
@@ -116,7 +118,6 @@ const Home = () => {
               to create an application for maintenance management for heavy
               equipment such as excavators.
             </p>
-            <p>ABCD</p>
           </div>
           <div className="lg:flex gap-12">
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-slate-300">
@@ -180,20 +181,14 @@ const Home = () => {
         </section>
         <section>
           <div id="portfolio">
-            <h3 className="text-3xl py-1 dark:text-slate-100">Portfolio</h3>
+            <h3 className="text-3xl py-1 text-teal-600 dark:text-sky-400">
+              Portfolio
+            </h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-slate-100">
-              Since the beginning of my journey as a frontend developer, I`ve
-              done work for{" "}
-              <span className="text-sky-700 font-bold">Dicoding</span> as an{" "}
-              <span className="text-sky-700 font-bold">
-                External Code Reviewer
-              </span>{" "}
-              and collaborated with talented people in my current job at{" "}
-              <span className="text-yellow-500 font-bold">
-                PT United Tracktors Tbk
-              </span>{" "}
-              to create an application for maintenance management for heavy
-              equipment such as excavators.
+              Here are some examples of projects that I have made while being a
+              frontend developer. Some of them are web and mobile projects.
+              Besides that, I also studied and created a build pipeline using
+              azure devops.
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
