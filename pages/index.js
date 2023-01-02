@@ -8,15 +8,8 @@ import {
 } from "react-icons/ai";
 import Image from "next/image";
 import avatar from "../public/avatar.png";
-import design from "../public/design.png";
-import code from "../public/code.png";
-import consulting from "../public/consulting.png";
-import web1 from "../public/web1.png";
-import web2 from "../public/web2.png";
-import web3 from "../public/web3.png";
-import web4 from "../public/web4.png";
-import web5 from "../public/web5.png";
-import web6 from "../public/web6.png";
+import { ServiceCard } from "../components/services/services-card";
+import { PortfolioCard } from "../components/portfolio/portfolio-card";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -58,11 +51,11 @@ const Home = () => {
               </li>
             </ul>
           </nav>
-          <div className="text-center p-10">
-            <h2 className="text-6xl py-2 font-medium md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-teal-700 to-emerald-400 dark:bg-gradient-to-b dark:from-teal-300 dark:to-sky-500">
+          <div className="text-center p-8">
+            <h2 className="text-6xl py-5 font-medium md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-teal-700 to-emerald-400 dark:bg-gradient-to-b dark:from-teal-300 dark:to-sky-500">
               Chandra Septian
             </h2>
-            <h3 className="text-2xl py-2 md:text-3xl dark:text-slate-100">
+            <h3 className="text-2xl py-5 md:text-3xl dark:text-slate-100">
               Developer and Engineer
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 md:text-xl max-w-3xl mx-auto dark:text-slate-100">
@@ -75,7 +68,7 @@ const Home = () => {
               communities in Bandung.
             </p>
           </div>
-          <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-slate-100">
+          <div className="text-5xl flex justify-center gap-16 text-gray-600 dark:text-slate-100">
             <AiFillTwitterCircle
               className="cursor-pointer"
               onClick={() => window.open("https://www.twitter.com", "_blank")}
@@ -91,17 +84,16 @@ const Home = () => {
               onClick={() => window.open("https://www.instagram.com", "_blank")}
             />
           </div>
-          <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden md:h-96 md:w-96 dark:bg-gradient-to-b dark:from-sky-300 dark:to-sky-700">
-            <Image alt="avatar" src={avatar} layout="fill" objectFit="cover" />
+          <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-10 mb-10 overflow-hidden md:h-96 md:w-96 dark:bg-gradient-to-b dark:from-sky-300 dark:to-sky-700">
+            <Image alt="avatar" src={avatar} fill />
           </div>
         </section>
-
         <section>
           <div>
-            <h3 className="text-3xl py-1 text-teal-600 dark:text-sky-400 font-bold">
-              Services I Offer
+            <h3 className="text-3xl py-3 font-bold font-burtons text-teal-600 dark:text-sky-400">
+              Services
             </h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-slate-100">
+            <p className="text-md py-3 leading-8 text-gray-800 dark:text-slate-100">
               Since the beginning of my journey as a frontend developer, I`ve
               done work for{" "}
               <span className="text-sky-700 font-bold dark:text-sky-300">
@@ -119,139 +111,20 @@ const Home = () => {
               equipment such as excavators.
             </p>
           </div>
-          <div className="lg:flex gap-12">
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-slate-300">
-              <Image
-                alt="design"
-                className="mx-auto"
-                src={design}
-                width={100}
-                height={100}
-              />
-              <h3 className="text-lg font-medium pt-8 pb-2">
-                Beautiful Designs
-              </h3>
-              <p className="py-2">
-                Creating elegant designs suited for your needs design theory
-              </p>
-              <h4 className="py-4 text-teal-600">Design tools I use</h4>
-              <p className="text-gray-800 py-1">Photoshop</p>
-              <p className="text-gray-800 py-1">Illustrator</p>
-              <p className="text-gray-800 py-1">Figma</p>
-            </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-slate-300">
-              <Image
-                alt="code"
-                className="mx-auto"
-                src={code}
-                width={100}
-                height={100}
-              />
-              <h3 className="text-lg font-medium pt-8 pb-2">
-                Beautiful Designs
-              </h3>
-              <p className="py-2">
-                Creating elegant designs suited for your needs design theory
-              </p>
-              <h4 className="py-4 text-teal-600">Design tools I use</h4>
-              <p className="text-gray-800 py-1">Photoshop</p>
-              <p className="text-gray-800 py-1">Illustrator</p>
-              <p className="text-gray-800 py-1">Figma</p>
-            </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-slate-300">
-              <Image
-                alt="consulting"
-                className="mx-auto"
-                src={consulting}
-                width={100}
-                height={100}
-              />
-              <h3 className="text-lg font-medium pt-8 pb-2">
-                Beautiful Designs
-              </h3>
-              <p className="py-2">
-                Creating elegant designs suited for your needs design theory
-              </p>
-              <h4 className="py-4 text-teal-600">Design tools I use</h4>
-              <p className="text-gray-800 py-1">Photoshop</p>
-              <p className="text-gray-800 py-1">Illustrator</p>
-              <p className="text-gray-800 py-1">Figma</p>
-            </div>
-          </div>
+          <ServiceCard />
         </section>
         <section>
           <div id="portfolio">
-            <h3 className="text-3xl py-1 text-teal-600 dark:text-sky-400">
+            <h3 className="text-3xl py-3 font-bold font-burtons text-teal-600 dark:text-sky-400">
               Portfolio
             </h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-slate-100">
+            <p className="text-md py-3 leading-8 text-gray-800 dark:text-slate-100">
               Here are some examples of projects that I have made while being a
               frontend developer. Some of them are web and mobile projects.
               Besides that, I also studied and created a build pipeline using
               azure devops.
             </p>
-          </div>
-          <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <div className="basis-1/3 flex-1">
-              <Image
-                alt="web1"
-                src={web1}
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                alt="web1"
-                src={web2}
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                alt="web1"
-                src={web3}
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                alt="web1"
-                src={web4}
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                alt="web1"
-                src={web5}
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                alt="web1"
-                src={web6}
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-              />
-            </div>
+            <PortfolioCard />
           </div>
         </section>
       </main>
