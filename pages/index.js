@@ -21,7 +21,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main className="bg-gray-100 px-10 md:px-20 lg:px-35 dark:bg-slate-800">
+      <main className="bg-gray-200 px-10 md:px-20 lg:px-35 dark:bg-gray-800">
         <section className="min-h-screen">
           <nav className="py-10 mb-4 flex justify-between">
             <h1 className="text-2xl font-burtons text-teal-600 dark:text-sky-400">
@@ -105,9 +105,9 @@ const Home = () => {
               </span>{" "}
               and collaborated with talented people in my current job at{" "}
               <span className="text-yellow-500 font-bold">
-                PT United Tracktors Tbk
+                PT United Tractors Tbk
               </span>{" "}
-              to create an application for maintenance management for heavy
+              to create an application for maintaining management of heavy
               equipment such as excavators.
             </p>
           </div>
