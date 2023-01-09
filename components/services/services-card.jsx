@@ -15,7 +15,7 @@ export const ServiceCard = () => {
               width={100}
               height={100}
             />
-            <h3 className="text-lg font-medium pt-8 pb-2">{service.title}</h3>
+            <h3 className="font-burtons text-lg font-medium pt-8 pb-2">{service.title}</h3>
             <p className="py-2">{service.description}</p>
             {service.framework.map((list) => {
               return (

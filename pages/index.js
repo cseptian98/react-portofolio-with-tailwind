@@ -24,7 +24,7 @@ const Home = () => {
       <main className="bg-gray-200 px-10 md:px-20 lg:px-35 dark:bg-gray-800">
         <section className="min-h-screen">
           <nav className="py-10 mb-4 flex justify-between">
-            <h1 className="text-2xl font-burtons text-teal-600 dark:text-sky-400">
+            <h1 className="text-2xl font-burtons text-sky-600 dark:text-sky-400">
               CSeptian
             </h1>
             <ul className="flex items-center">
@@ -37,13 +37,13 @@ const Home = () => {
                 ) : (
                   <BsFillMoonStarsFill
                     onClick={() => setDarkMode(!darkMode)}
-                    className="cursor-pointer text-2xl"
+                    className="cursor-pointer text-2xl text-yellow-400"
                   />
                 )}
               </li>
               <li>
                 <a
-                  className="bg-gradient-to-r from-cyan-500 to-teal-400 text-white px-4 py-2 rounded-md ml-8 dark:bg-gradient-to-br dark:from-sky-900 dark:to-sky-600"
+                  className="bg-gradient-to-r from-sky-600 to-teal-400 text-white px-4 py-2 rounded-md ml-8 dark:bg-gradient-to-r dark:from-sky-800 dark:to-cyan-400"
                   href="#portfolio"
                 >
                   Projects
@@ -52,13 +52,13 @@ const Home = () => {
             </ul>
           </nav>
           <div className="text-center p-8">
-            <h2 className="text-6xl py-5 font-medium md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-teal-700 to-emerald-400 dark:bg-gradient-to-b dark:from-teal-300 dark:to-sky-500">
+            <h2 className="font-burtons text-6xl py-5 font-medium md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-sky-600 to-teal-400 dark:bg-gradient-to-b dark:from-sky-400 dark:to-cyan-800">
               Chandra Septian
             </h2>
-            <h3 className="text-2xl py-5 md:text-3xl dark:text-slate-100">
+            <h3 className="font-mono text-2xl py-5 md:text-3xl dark:text-slate-100">
               Developer and Engineer
             </h3>
-            <p className="text-md py-5 leading-8 text-gray-800 md:text-xl max-w-3xl mx-auto dark:text-slate-100">
+            <p className="font-mono text-md py-5 leading-8 text-gray-800 md:text-xl max-w-3xl mx-auto dark:text-slate-100">
               A young competent and professional software engineer. Be able to
               work in the public and private sectors. Well-organized,
               hard-working, and willing to learn more. Working well in both
@@ -84,17 +84,17 @@ const Home = () => {
               onClick={() => window.open("https://www.instagram.com", "_blank")}
             />
           </div>
-          <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-10 mb-10 overflow-hidden md:h-96 md:w-96 dark:bg-gradient-to-b dark:from-sky-300 dark:to-sky-700">
+          <div className="relative mx-auto bg-gradient-to-b from-sky-600 to-teal-400 rounded-full w-80 h-80 mt-10 mb-10 overflow-hidden md:h-96 md:w-96 dark:bg-gradient-to-b dark:from-sky-400 dark:to-cyan-800">
             <Image alt="avatar" src={avatar} fill />
           </div>
         </section>
         <section>
           <div>
-            <h3 className="text-3xl py-3 font-bold font-burtons text-teal-600 dark:text-sky-400">
+            <h3 className="text-3xl py-3 font-bold font-burtons text-sky-600 dark:text-sky-400">
               Services
             </h3>
             <p className="text-md py-3 leading-8 text-gray-800 dark:text-slate-100">
-              Since the beginning of my journey as a frontend developer, I`ve
+              Since the beginning of my journey as a frontend developer, I have
               done work for{" "}
               <span className="text-sky-700 font-bold dark:text-sky-300">
                 Dicoding
@@ -115,7 +115,7 @@ const Home = () => {
         </section>
         <section>
           <div id="portfolio">
-            <h3 className="text-3xl py-3 font-bold font-burtons text-teal-600 dark:text-sky-400">
+            <h3 className="text-3xl py-3 font-bold font-burtons text-sky-600 dark:text-sky-400">
               Portfolio
             </h3>
             <p className="text-md py-3 leading-8 text-gray-800 dark:text-slate-100">
