@@ -9,7 +9,7 @@ export const ServiceCard = () => {
         return (
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="service-card"
+            className="service-card gradient-color"
             key={service.id}
           >
             <Image
