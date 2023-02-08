@@ -16,13 +16,16 @@
     @apply border-l-4 border-primary-dark my-8 ml-6 py-12 space-y-14 dark:border-primary-light;
   }
   .dot {
-    @apply absolute top-7 -left-3.5 bg-second-light h-6 w-6 rounded-full border-4 border-second-dark dark:border-primary-light;
+    @apply absolute top-7 -left-5 bg-second-light h-9 w-9 rounded-full border-4 border-second-dark dark:border-primary-light;
   }
   .timeline-date {
     @apply text-xs text-color font-bold opacity-60 tracking-widest;
   }
+  .timeline-company {
+    @apply text-3xl text-second-light font-semibold tracking-wider mb-2;
+  }
   .timeline-title {
-    @apply text-3xl text-color font-semibold tracking-wider mb-2;
+    @apply text-xl text-color font-semibold tracking-wider mb-2;
   }
 }
 
