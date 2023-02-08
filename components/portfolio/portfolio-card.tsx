@@ -1,12 +1,12 @@
 import Image from "next/image";
-import web1 from "../../public/web1.png";
-import web2 from "../../public/web2.png";
-import web3 from "../../public/web3.png";
-import web4 from "../../public/web4.png";
-import web5 from "../../public/web5.png";
-import web6 from "../../public/web6.png";
+import img1 from "../../public/img1.jpeg";
+import img2 from "../../public/img2.jpg";
+import img3 from "../../public/img3.jpg";
+import img4 from "../../public/img4.png";
+import img5 from "../../public/img5.jpg";
+import img6 from "../../public/img6.jpg";
 
-const listPhotos = [web1, web2, web3, web4, web5, web6];
+const listPhotos = [img1, img2, img3, img4, img5, img6];
 
 export const PortfolioCard = () => {
   return (

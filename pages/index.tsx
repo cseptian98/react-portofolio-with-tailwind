@@ -1,17 +1,14 @@
 import Head from "next/head";
 import { useState } from "react";
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import avatar from "../public/avatar.png";
 import { ServiceCard } from "../components/services/services-card";
 import { PortfolioCard } from "../components/portfolio/portfolio-card";
 import { Timeline } from "../components/timeline/timeline";
+import { listExperiences } from "../components/timeline/timeline-data";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -72,9 +69,9 @@ const Home = () => {
             </p>
           </div>
           <div className="text-5xl flex justify-center gap-16 text-color">
-            <AiFillTwitterCircle
+            <AiFillGithub
               className="cursor-pointer"
-              onClick={() => window.open("https://www.twitter.com", "_blank")}
+              onClick={() => window.open("https://www.github.com", "_blank")}
             />
             <AiFillLinkedin
               className="cursor-pointer"
@@ -121,7 +118,7 @@ const Home = () => {
             <h3 className="text-3xl py-1 font-bold font-burtons text-transparent bg-clip-text gradient-color">
               Experiences
             </h3>
-            <Timeline />
+            <Timeline timeline={listExperiences}/>
           </div>
         </section>
         <section>
