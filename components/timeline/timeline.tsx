@@ -1,5 +1,3 @@
-import { listExperiences } from "./timeline-data";
-
 type TimelineProps = {
   timeline: TimelineObject[];
 };
