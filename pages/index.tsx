@@ -4,11 +4,10 @@ import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import avatar from "../public/avatar.png";
-import { ServiceCard } from "../components/services/services-card";
-import { PortfolioCard } from "../components/portfolio/portfolio-card";
-import { Timeline } from "../components/timeline/timeline";
-import { listExperiences } from "../components/timeline/timeline-data";
+import { avatar, vite, postgre, redux, tanstack } from "@public/images";
+import { ServiceSection } from "components/Services";
+import { ExperienceTimeline } from "@components/Timeline";
+import ProjectSection from "@components/Projects";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -25,10 +24,10 @@ const Home = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main className="bg-primary-light px-10 md:px-20 lg:px-35 dark:bg-primary-dark">
-        <section className="min-h-screen">
-          <nav className="py-10 mb-4 flex justify-between">
-            <h1 className="text-2xl font-burtons text-transparent bg-clip-text gradient-color">
+      <main className="bg-second-light dark:bg-primary-dark">
+        <section>
+          <nav className="px-12 py-8 flex justify-between">
+            <h1 className="text-2xl font-tomorrow text-primary-dark dark:text-second-light">
               CSeptian
             </h1>
             <ul className="flex items-center">
@@ -47,30 +46,32 @@ const Home = () => {
               </li>
             </ul>
           </nav>
-          <div className="text-center p-8">
-            <motion.h2
-              className="font-burtons text-6xl py-5 font-medium md:text-6xl text-transparent bg-clip-text gradient-color"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              Chandra Septian
-            </motion.h2>
-            <h3 className="font-mono text-2xl py-5 md:text-3xl text-color">
-              Developer and Engineer
-            </h3>
-            <p className="font-mono text-md py-4 leading-8 md:text-xl max-w-3xl mx-auto text-color">
-              A young competent and professional software engineer. Be able to
-              work in the public and private sectors. Well-organized,
-              hard-working, and willing to learn more. Working well in both
-              individual and team, with excellent self-awareness and
-              communication skills. In addition, I have several programming
-              training certifications and quite active in several developer
-              communities in Bandung.
-            </p>
+          <div className="px-12 flex gap-4 my-10">
+            <div className="w-[30%]">
+              <div
+                className="relative rounded-full w-40 h-40 overflow-hidden md:h-48 md:w-48 bg-primary-light dark:bg-second-light">
+                <Image alt="avatar" src={avatar} fill />
+              </div>
+              <h2
+                className="font-tomorrow text-xl my-4 md:text-l text-primary-dark dark:text-second-light"
+              >
+                Hello! I`m Chandra Septian
+              </h2>
+              <h3 className="font-tomorrow text-xl md:text-l text-primary-dark dark:text-second-light">
+                Senior Software Engineer 🇮🇩
+              </h3>
+            </div>
+            <div className="w-[70%] flex items-center justify-center">
+              <p className="font-mono text-l md:text-xl max-w-3xl text-primary-dark dark:text-second-light">
+                A young competent and professional software engineer with 5+ years experience on software
+                development. Well-organized, hard-worker, and willing to learn more. Working well in both individual and
+                team, with excellent self-awareness and communication skills.
+              </p>
+            </div>
           </div>
-          <div className="text-5xl flex justify-center gap-16 text-color">
+          <div className="flex justify-center gap-16 py-4 text-4xl text-second-light bg-primary-light dark:text-primary-dark dark:bg-second-light">
             <AiFillGithub
-              className="cursor-pointer"
+              className="cursor-pointer "
               onClick={() => window.open("https://www.github.com", "_blank")}
             />
             <AiFillLinkedin
@@ -84,55 +85,21 @@ const Home = () => {
               onClick={() => window.open("https://www.instagram.com", "_blank")}
             />
           </div>
-          <div className="relative mx-auto rounded-full w-80 h-80 mt-10 mb-10 overflow-hidden md:h-96 md:w-96 gradient-color">
-            <Image alt="avatar" src={avatar} fill />
-          </div>
         </section>
+        <ServiceSection />
+        <ProjectSection />
+        <ExperienceTimeline />
         <section>
-          <div>
-            <h3 className="text-3xl py-1 font-bold font-burtons text-transparent bg-clip-text gradient-color">
-              Services
+          <div className="flex justify-center my-10">
+            <h3 className="text-4xl font-bold font-tomorrow text-primary-dark dark:text-second-light">
+              Technology
             </h3>
-            <p className="text-md py-2 leading-8 text-color">
-              Since the beginning of my journey as a frontend developer, I have
-              done work for{" "}
-              <span className="text-sky-700 font-bold dark:text-sky-300">
-                Dicoding
-              </span>{" "}
-              as an{" "}
-              <span className="text-sky-700 font-bold dark:text-sky-300">
-                External Code Reviewer
-              </span>{" "}
-              and collaborated with talented people in my current job at{" "}
-              <span className="text-yellow-500 font-bold">
-                PT United Tractors Tbk
-              </span>{" "}
-              to create an application for maintaining management of heavy
-              equipment such as excavators.
-            </p>
           </div>
-          <ServiceCard />
-        </section>
-        <section>
-          <div>
-            <h3 className="text-3xl py-1 font-bold font-burtons text-transparent bg-clip-text gradient-color">
-              Experiences
-            </h3>
-            <Timeline timeline={listExperiences}/>
-          </div>
-        </section>
-        <section>
-          <div id="portfolio">
-            <h3 className="text-3xl py-1 font-bold font-burtons text-transparent bg-clip-text gradient-color">
-              Portfolio
-            </h3>
-            <p className="text-md py-2 leading-8 text-color">
-              Here are some examples of projects that I have made while being a
-              frontend developer. Some of them are web and mobile projects.
-              Besides that, I also studied and created a build pipeline using
-              azure devops.
-            </p>
-            <PortfolioCard />
+          <div className="flex justify-evenly py-6 px-12 bg-primary-light dark:bg-second-light">
+            <Image alt="vite" src={vite} width={120} height={120} />
+            <Image alt="postgre" src={postgre} width={120} height={120} />
+            <Image alt="tanstack" src={tanstack} width={120} height={120} />
+            <Image alt="redux" src={redux} width={120} height={120} />
           </div>
         </section>
       </main>
