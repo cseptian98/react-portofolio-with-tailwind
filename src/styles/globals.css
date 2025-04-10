@@ -48,15 +48,15 @@ a {
 
 @font-face {
   font-family: "burtons";
-  src: url("../public/Burtons.otf");
+  src: url("../../public/fonts/Burtons.otf");
 }
 
 @font-face {
   font-family: "montserrat";
-  src: url("../public/Montserrat-Bold.ttf");
+  src: url("../../public/fonts/Montserrat-Bold.ttf");
 }
 
 @font-face {
   font-family: "tomorrow";
-  src: url("../public/Tomorrow-Medium.ttf");
+  src: url("../../public/fonts/Tomorrow-Medium.ttf");
 }

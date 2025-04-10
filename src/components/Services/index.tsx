@@ -1,4 +1,4 @@
-import ServiceList from "@components/Services/ServiceList";
+import ServiceList from "./ServiceList";
 
 const services = [
   "WEB APPLICATION",
@@ -9,7 +9,7 @@ const services = [
 
 export const ServiceSection = () => (
   <div>
-    <div className="flex gap-16 my-10 px-12 font-tomorrow">
+    <div className="flex gap-16 my-16 px-12 font-tomorrow">
       <div className="w-[60%] text-primary-dark dark:text-second-light">
         <h3 className="text-4xl font-bold">
           Services I am Providing

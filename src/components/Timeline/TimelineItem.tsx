@@ -1,7 +1,7 @@
 import React from "react";
 
 type TimelineItemProps = {
-  position: "left" | "right";
+  position: "start" | "end";
   date: string;
   company: string;
   role: string;
@@ -9,11 +9,9 @@ type TimelineItemProps = {
 };
 
 const TimelineItem: React.FC<TimelineItemProps> = ({ position, date, company, role, description }) => {
-  const isLeft = position === "left";
-  const justify = `justify-${isLeft ? "start" : "end"}`;
-
+  console.log("position", position);
   return (
-    <div className={`w-full flex ${justify} mb-10`}>
+    <div className={`w-full flex justify-${position} mb-10`}>
       <div className="relative w-1/2 px-6">
         <div className="text-second-light bg-primary-light border-primary-dark dark:text-primary-dark dark:bg-second-light border-4 dark:border-primary-light p-4 rounded-xl shadow-md">
           <p className="text-sm font-semibold mb-1">{date}</p>

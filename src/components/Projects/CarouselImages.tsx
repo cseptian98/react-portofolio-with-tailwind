@@ -29,8 +29,7 @@ export const ClientProjectsCarousel = () => {
 
   return (
       <div className="max-w-5xl mx-auto px-4 text-center">
-        {/* Carousel image */}
-        <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl mb-8">
+        <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl my-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={projects[index].title}
@@ -49,12 +48,6 @@ export const ClientProjectsCarousel = () => {
             </motion.div>
           </AnimatePresence>
         </div>
-
-        {/* Description */}
-        <h2 className="text-3xl text-primary-dark dark:text-second-light font-bold mb-3">{projects[index].title}</h2>
-        <p className="text-primary-dark dark:text-second-light mb-6 max-w-2xl mx-auto">
-          {projects[index].desc}
-        </p>
 
         {/* Controls */}
         <div className="flex justify-center gap-6 text-primary-dark dark:text-second-light">

@@ -4,10 +4,11 @@ import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { avatar, vite, postgre, redux, tanstack } from "@public/images";
-import { ServiceSection } from "components/Services";
-import { ExperienceTimeline } from "@components/Timeline";
-import ProjectSection from "@components/Projects";
+import { avatar } from "@public/images";
+import { ServiceSection } from "@/components/Services";
+import { ExperienceTimeline } from "@/components/Timeline";
+import ProjectSection from "@/components/Projects";
+import { Footer } from "@/components/Footer";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -89,19 +90,7 @@ const Home = () => {
         <ServiceSection />
         <ProjectSection />
         <ExperienceTimeline />
-        <section>
-          <div className="flex justify-center my-10">
-            <h3 className="text-4xl font-bold font-tomorrow text-primary-dark dark:text-second-light">
-              Technology
-            </h3>
-          </div>
-          <div className="flex justify-evenly py-6 px-12 bg-primary-light dark:bg-second-light">
-            <Image alt="vite" src={vite} width={120} height={120} />
-            <Image alt="postgre" src={postgre} width={120} height={120} />
-            <Image alt="tanstack" src={tanstack} width={120} height={120} />
-            <Image alt="redux" src={redux} width={120} height={120} />
-          </div>
-        </section>
+        <Footer />
       </main>
     </motion.div>
   );

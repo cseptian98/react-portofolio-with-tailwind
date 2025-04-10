@@ -1,6 +1,6 @@
-import devops from "../../public/maintenance.webp";
-import mobdev from "../../public/mobdev.webp"
-import webdev from "../../public/webdev.webp"
+import devops from "@public/maintenance.webp";
+import mobdev from "@public/mobdev.webp"
+import webdev from "@public/webdev.webp"
 
 export const listServices = [
   {
