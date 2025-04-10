@@ -46,17 +46,17 @@ a {
   box-sizing: border-box;
 }
 
-.progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: var(--red);
-  transform-origin: 0%;
+@font-face {
+  font-family: "burtons";
+  src: url("../../public/fonts/Burtons.otf");
 }
 
 @font-face {
-  font-family: "burtons";
-  src: url("../public/Burtons.otf");
+  font-family: "montserrat";
+  src: url("../../public/fonts/Montserrat-Bold.ttf");
+}
+
+@font-face {
+  font-family: "tomorrow";
+  src: url("../../public/fonts/Tomorrow-Medium.ttf");
 }
