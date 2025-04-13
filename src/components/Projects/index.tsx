@@ -5,17 +5,17 @@ const services = [
   {
     icon: <MdDashboard size={36} className="text-second-light dark:text-primary-dark" />,
     title: "Web Dashboard",
-    desc: "Designing interfaces that are intuitive, efficient, and enjoyable to use."
+    desc: "Designing interfaces that are intuitive, efficient, and enjoyable to use. Help you to monitor any case that you need."
   },
   {
     icon: <MdWeb size={36} className="text-second-light dark:text-primary-dark" />,
     title: "Web Application",
-    desc: "Transforming ideas into exceptional web and mobile app experiences."
+    desc: "Transforming ideas into exceptional web application such as data management of your company, landing pages, and anything else."
   },
   {
     icon: <MdOutlinePhoneAndroid size={36} className="text-second-light dark:text-primary-dark" />,
     title: "Mobile Application",
-    desc: "Crafting visually stunning designs that connect with your audience."
+    desc: "Create a multi-platform application to used globally with an amazing experience and good performances."
   }
 ];
 
