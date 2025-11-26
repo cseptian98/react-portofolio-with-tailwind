@@ -27,11 +27,12 @@ const Home = () => {
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       </header>
       <main className="dark:bg-primary-dark bg-second-light">
-        <HeroSection />
-        <ServiceSection />
-        <ProjectSection />
-        <ExperienceTimeline />
-        <Footer />
+        <div className="container-max">
+          <HeroSection />
+          <ServiceSection />
+          <ExperienceTimeline />
+          <Footer />
+        </div>
       </main>
     </motion.div>
   );
