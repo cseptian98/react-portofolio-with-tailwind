@@ -5,7 +5,7 @@ import axios from "@public/icons/Axios.png";
 import azure from "@public/icons/azure.webp";
 import dicoding from "@public/dicoding.png";
 import docker from "@public/icons/docker.webp";
-import dotnet from "@public/icons/dotnet.webp";
+import dotnet from "@public/icons/dotnet.png";
 import github from "@public/icons/github.png";
 import kubb from "@public/icons/kubb.png";
 import kubernetes from "@public/icons/kubernetes.png";
