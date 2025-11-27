@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { avatar } from "@public/images";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { useState, useEffect } from "react";
 
