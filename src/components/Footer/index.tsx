@@ -1,4 +1,4 @@
-import { astro, azure, github, kubb, docker, kubernetes, nextjs, postgre, react, redux, tanstack, vite } from "@public/images";
+import { astro, azure, github, kubb, docker, kubernetes, nextjs, postgre, react, redux, tanstack, vite, dotnet } from "@public/images";
 import TechnologySection from "@/components/Footer/Technologies";
 
 const techList = [
@@ -8,12 +8,12 @@ const techList = [
   { alt: "kubb", src: kubb },
   { alt: "nextjs", src: nextjs },
   { alt: "astro", src: astro },
+  { alt: "dotnet", src: dotnet },
+  { alt: "postgre", src: postgre },
   { alt: "docker", src: docker },
   { alt: "kubernetes", src: kubernetes },
   { alt: "azure", src: azure },
   { alt: "github", src: github },
-  { alt: "postgre", src: postgre },
-  { alt: "redux", src: redux },
 ];
 
 const Footer = () => {

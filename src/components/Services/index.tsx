@@ -1,15 +1,8 @@
 import ServiceList from "./ServiceList";
 
-const services = [
-  "WEB APPLICATION",
-  "MOBILE APPLICATION",
-  "WEB DASHBOARD",
-  "DEVOPS",
-];
-
 export const ServiceSection = () => (
   <div>
-    <div className="flex flex-col md:flex-row gap-10 md:gap-16 my-16 px-4 sm:px-6 md:px-12 font-tomorrow">
+    <div className="flex flex-col gap-10 md:gap-16 my-16 px-4 sm:px-6 md:px-12 font-tomorrow">
       {/* Left Side */}
       <div className="w-full md:w-3/5 md:text-left text-center text-primary-dark dark:text-second-light">
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
@@ -21,8 +14,8 @@ export const ServiceSection = () => (
       </div>
 
       {/* Right Side - Service List */}
-      <div className="w-full md:w-2/5">
-        <ServiceList services={services} />
+      <div className="w-full md:w-full">
+        <ServiceList />
       </div>
     </div>
   </div>
