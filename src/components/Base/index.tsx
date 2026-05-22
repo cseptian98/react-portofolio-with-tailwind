@@ -9,7 +9,7 @@ import HeroSection from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
 const Home = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   return (
     <motion.div
       className={darkMode ? "dark" : ""}
@@ -31,6 +31,7 @@ const Home = () => {
           <HeroSection />
           <ServiceSection />
           <ExperienceTimeline />
+          <ProjectSection />
           <Footer />
         </div>
       </main>

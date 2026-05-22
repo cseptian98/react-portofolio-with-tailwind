@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import { FaUsers, FaChartLine, FaLightbulb, FaCode, FaMobile, FaServer } from "react-icons/fa";
 import { IconType } from "react-icons";
+import { motion, useInView } from "framer-motion";
 
 type Service = {
   icon: IconType;
@@ -42,22 +45,56 @@ const services: Service[] = [
 ];
 
 const ServiceList: React.FC = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0"
+    >
       {services.map((service, index) => {
         const Icon = service.icon;
         return (
-          <div 
-            key={index} 
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="dark:text-second-light text-primary-dark p-8 dark:border-second-light border border-primary-dark hover:bg-gray-300 dark:hover:bg-second-dark transition-colors duration-300"
           >
-            <Icon className="text-3xl mb-4 text-primary-dark dark:text-second-light" />
+            <Icon className="text-4xl mb-4 text-primary-dark dark:text-second-light" />
             <h3 className="font-tomorrow font-bold text-xl mb-3">{service.title}</h3>
             <p className="font-mono text-sm leading-relaxed opacity-80">{service.description}</p>
-          </div>
+          </motion.div>
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 
