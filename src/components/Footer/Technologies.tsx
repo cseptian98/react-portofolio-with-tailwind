@@ -96,7 +96,7 @@ export default function TechnologySection({
 
                     {/* Logo with hover effect */}
                     <div className="hover:scale-110 transition-transform duration-300 ease-in-out">
-                      <img
+                      <Image
                         alt={tech.alt}
                         src={tech.src}
                         width={80}
