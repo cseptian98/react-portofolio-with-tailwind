@@ -93,3 +93,25 @@ a {
   font-family: "tomorrow";
   src: url("../../public/fonts/Tomorrow-Medium.ttf");
 }
+
+/* Glowing gradient border flow animation */
+@keyframes rotate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-glow-flow {
+  background-size: 200% 200% !important;
+  animation: rotate-gradient 6s ease infinite;
+}
+
+.group:hover .animate-glow-flow {
+  animation-duration: 3s;
+}

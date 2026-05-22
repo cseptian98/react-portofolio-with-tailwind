@@ -17,8 +17,8 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      "primary-dark": "#222831",
-      "second-dark": "#31363F",
+      "primary-dark": "#1f1f1f",
+      "second-dark": "#222831",
       "primary-light": colors.sky[500],
       "second-light": "#EEEEEE",
       gray: colors.gray,
