@@ -6,6 +6,44 @@ interface NavbarProps {
 }
 
 const Navbar = ({darkMode, setDarkMode} : NavbarProps) => {
+  const handleToggle = (event: React.MouseEvent<SVGElement>) => {
+    const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const doc = document as any;
+
+    if (!doc.startViewTransition || isReducedMotion) {
+      setDarkMode(!darkMode);
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = doc.startViewTransition(() => {
+      setDarkMode(!darkMode);
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 500,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
+  };
+
   return (
     <nav className="px-12 py-8 flex justify-between">
       <h1 className="text-2xl font-tomorrow text-primary-dark dark:text-second-light">
@@ -15,12 +53,12 @@ const Navbar = ({darkMode, setDarkMode} : NavbarProps) => {
         <li>
           {darkMode ? (
             <BsFillSunFill
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={handleToggle}
               className="cursor-pointer text-2xl dark:text-yellow-400"
             />
           ) : (
             <BsFillMoonStarsFill
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={handleToggle}
               className="cursor-pointer text-2xl text-yellow-400"
             />
           )}

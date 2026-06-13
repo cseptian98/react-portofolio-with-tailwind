@@ -18,6 +18,7 @@ export default function TechnologySection({
   title = 'Technologies',
   technologies,
 }: Props) {
+  const [isHovered, setIsHovered] = useState(false)
   // Display exactly 12 items (4x3 grid)
   const [displayedTechs, setDisplayedTechs] = useState<Technology[]>(
     technologies.slice(0, 12),
@@ -27,6 +28,8 @@ export default function TechnologySection({
     if (technologies.length <= 12) return
 
     const interval = setInterval(() => {
+      if (isHovered) return // Pause the swap when hovered
+
       setDisplayedTechs(prev => {
         // Pick a random position to replace (0-11)
         const randomPosition = Math.floor(Math.random() * 12)
@@ -50,7 +53,7 @@ export default function TechnologySection({
     }, 2000)
 
     return () => clearInterval(interval)
-  }, [technologies])
+  }, [technologies, isHovered])
 
   return (
     <div className="my-12 sm:my-16 px-4 sm:px-6 md:px-12">
@@ -69,7 +72,11 @@ export default function TechnologySection({
         </div>
 
         {/* Logo Grid */}
-        <div className="bg-gray-50 dark:bg-gray-200 rounded-3xl p-8 md:p-12">
+        <div 
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="bg-gray-50 dark:bg-gray-200 rounded-3xl p-8 md:p-12"
+        >
           <div className="grid grid-cols-4 gap-8 md:gap-10">
             {displayedTechs.map((tech, index) => (
               <div

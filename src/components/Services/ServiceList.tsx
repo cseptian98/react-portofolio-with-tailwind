@@ -76,7 +76,7 @@ const ServiceList: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0"
+      className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
     >
       {services.map((service, index) => {
         const Icon = service.icon;
@@ -84,11 +84,14 @@ const ServiceList: React.FC = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, y: -6 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="dark:text-second-light text-primary-dark p-8 dark:border-second-light border border-primary-dark hover:bg-gray-300 dark:hover:bg-second-dark transition-colors duration-300"
+            className="group relative p-8 rounded-3xl dark:text-second-light text-primary-dark bg-white/60 dark:bg-[#121316]/40 border border-gray-200/50 dark:border-gray-800/40 shadow-sm hover:shadow-xl dark:hover:border-primary-light/40 hover:border-primary-light/40 transition-all duration-300 backdrop-blur-md overflow-hidden"
           >
-            <Icon className="text-4xl mb-4 text-primary-dark dark:text-second-light" />
+            {/* Subtle glow hover effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-light/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+            <Icon className="text-4xl mb-4 text-primary-dark dark:text-second-light group-hover:text-primary-light transition-colors duration-300" />
             <h3 className="font-tomorrow font-bold text-xl mb-3">{service.title}</h3>
             <p className="font-mono text-sm leading-relaxed opacity-80">{service.description}</p>
           </motion.div>
