@@ -17,10 +17,10 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      "primary-dark": "#1f1f1f",
-      "second-dark": "#222831",
+      "primary-dark": "#000000",
+      "second-dark": "#1c1c1e",
       "primary-light": colors.sky[500],
-      "second-light": "#EEEEEE",
+      "second-light": "#f5f5f7",
       gray: colors.gray,
       sky: colors.sky,
       yellow: colors.yellow,

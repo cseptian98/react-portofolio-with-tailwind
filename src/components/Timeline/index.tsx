@@ -38,13 +38,13 @@ export const ExperienceTimeline = () => {
   };
 
   return (
-    <section className="relative font-tomorrow overflow-hidden py-12">
+    <section className="relative overflow-hidden py-16 sm:py-20 md:py-24">
       <motion.h2
         ref={headerRef}
         initial={{ opacity: 0, y: 30 }}
         animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6 }}
-        className="text-3xl sm:text-4xl md:text-5xl text-center text-primary-dark dark:text-second-light font-bold my-12 sm:my-16"
+        className="text-4xl sm:text-5xl md:text-6xl text-center text-primary-dark dark:text-second-light font-extrabold tracking-tight my-12 sm:my-16"
       >
         Work Experiences
       </motion.h2>
@@ -55,7 +55,7 @@ export const ExperienceTimeline = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isLogosInView ? "visible" : "hidden"}
-        className="flex flex-wrap justify-center items-center gap-12 rounded-2xl bg-gray-50 dark:bg-gray-200 border border-gray-200 dark:border-gray-800/40 py-8 px-6 sm:px-12 my-8 transition-colors duration-500 max-w-6xl mx-auto"
+        className="flex flex-wrap justify-center items-center gap-12 rounded-2xl bg-gray-50 dark:bg-second-dark border border-gray-200 dark:border-gray-800/40 py-8 px-6 sm:px-12 my-8 transition-colors duration-500 max-w-6xl mx-auto"
       >
         {[
           { alt: "united-tractors", src: ut, width: 220 },

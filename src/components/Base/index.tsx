@@ -11,22 +11,22 @@ import Navbar from "@/components/Navbar";
 const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
   return (
-    <motion.div
-      className={darkMode ? "dark" : ""}
-      initial={{ y: "100vw" }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", delay: 0.4 }}
-    >
+    <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Chandra Septian - Portfolio</title>
         <meta name="description" content="My Portfolio Page" />
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <header className="dark:bg-primary-dark bg-second-light">
+      <header>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       </header>
-      <main className="dark:bg-primary-dark bg-second-light">
+      <motion.main 
+        className="dark:bg-primary-dark bg-second-light pt-24 min-h-screen"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="container-max">
           <HeroSection />
           <ServiceSection />
@@ -34,8 +34,8 @@ const Home = () => {
           <ProjectSection />
           <Footer />
         </div>
-      </main>
-    </motion.div>
+      </motion.main>
+    </div>
   );
 };
 

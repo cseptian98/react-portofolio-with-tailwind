@@ -92,13 +92,16 @@ const HeroSection = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16"
+        className="w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16"
       >
         <div className="flex flex-col gap-8 md:gap-12">
           <motion.div variants={itemVariants} className="w-full flex flex-col items-center text-center">
-            <h2 className="font-tomorrow text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-primary-dark dark:text-second-light leading-tight">
-              Hello! I'm <span className="typing-text text-primary-light">{displayedText}</span>
-              <span className="cursor-blink">|</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-primary-dark dark:text-second-light leading-tight flex flex-col items-center justify-center min-h-[120px] sm:min-h-[160px] md:min-h-[220px]">
+              <span>Hello! I'm</span>
+              <span className="mt-1 sm:mt-2 block max-w-full">
+                <span className="typing-text text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-purple-500">{displayedText}</span>
+                <span className="cursor-blink text-primary-light font-light">|</span>
+              </span>
             </h2>
             <style jsx>{`
               .cursor-blink {
@@ -111,8 +114,8 @@ const HeroSection = () => {
             `}</style>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="w-full flex items-center justify-center">
-            <p className="font-mono text-base sm:text-lg md:text-xl lg:text-2xl text-primary-dark dark:text-second-light text-center leading-relaxed max-w-4xl">
+          <motion.div variants={itemVariants} className="w-full flex items-center justify-center mt-6">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-500 dark:text-gray-400 text-center leading-relaxed w-full tracking-tight">
               A Software Engineer with 7+ years of experience in building and scaling software solutions, with the past 2 years focused on leading teams and driving technical strategy. Working well in both individual and team,
               I have excellent self-awareness and communication skills. I enjoy solving complex problems, improving system performance, and helping engineers grow through mentorship and collaboration.
             </p>
