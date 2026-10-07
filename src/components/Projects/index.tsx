@@ -13,6 +13,8 @@ type Project = {
   description: string;
   image: string;
   tags: string[];
+  link?: string;
+  github?: string;
 };
 
 type Tab = {
@@ -22,7 +24,7 @@ type Tab = {
   projects: Project[];
 };
 
-const tabs: Tab[] = [
+export const tabs: Tab[] = [
   {
     id: "web",
     label: "Web",
