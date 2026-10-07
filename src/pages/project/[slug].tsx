@@ -39,10 +39,10 @@ const dummyProjects = {
   }
 };
 
-export default function ProjectDetail() {
+export default function ProjectDetail({ darkMode = false, setDarkMode = () => {} }: { darkMode?: boolean, setDarkMode?: (val: boolean) => void }) {
   const router = useRouter();
   const { slug } = router.query;
-  const [darkMode, setDarkMode] = useState(false);
+  
 
   // If loading or slug is not yet available
   if (!slug) return null;
@@ -51,17 +51,17 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className={darkMode ? "dark" : ""}>
+      <>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <div className="min-h-screen flex items-center justify-center dark:bg-primary-dark bg-second-light pt-24 text-gray-900 dark:text-white">
           <h1>Project Not Found</h1>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <>
       <Head>
         <title>{project.title} - Portfolio</title>
       </Head>
@@ -126,6 +126,6 @@ export default function ProjectDetail() {
         </motion.div>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
