@@ -5,14 +5,16 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { MdOutlinePhoneAndroid, MdWeb } from "react-icons/md";
 import { HiOutlineSparkles } from "react-icons/hi2";
 import Image from "next/image";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
+import Link from "next/link";
 
 type Project = {
+  slug: string;
   title: string;
   description: string;
   image: string;
   tags: string[];
+  link?: string;
+  github?: string;
 };
 
 type Tab = {
@@ -22,41 +24,46 @@ type Tab = {
   projects: Project[];
 };
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const tabs: Tab[] = [
+export const tabs: Tab[] = [
   {
     id: "web",
     label: "Web",
     icon: <MdWeb size={18} />,
     projects: [
       {
-        title: "TaskFlow",
-        description:
-          "Collaborative project management platform with real-time sync, Gantt charts, and team analytics built with Next.js.",
-        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=TaskFlow+—+Web+App",
-        tags: ["Next.js", "TypeScript", "TanStack Query", "Postgres"],
+        slug: "advanced-analytics-dashboard",
+        title: "Advanced Analytics Dashboard",
+        description: "This project is a comprehensive web application featuring responsive design and real-time capabilities. It serves as a data orchestration platform that enables users to upload and validate complex manual datasets. By highlighting modern web development practices—including API integration, server-side rendering, and complex state management—the dashboard delivers a seamless and highly interactive user experience.",
+        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=Advanced+Analytics+Dashboard",
+        tags: ["React", "TypeScript", "Tailwind CSS", "SPA"],
       },
       {
-        title: "StoreBuilder",
-        description:
-          "No-code e-commerce builder with drag-and-drop interface, live preview, and one-click deployment powered by Vite + React.",
-        image: "https://placehold.co/1280x800/0f172a/34d399?text=StoreBuilder+—+Web+App",
-        tags: ["React", "Vite", "Node.js", "DnD Kit"],
+        slug: "customer-operation-improvement-platform",
+        title: "Customer Operation Improvement Platform",
+        description: "A comprehensive full-stack solution designed to digitize and streamline field operator workflows. By transitioning from manual paper checksheets to a synchronized mobile and web ecosystem, the platform ensures high data integrity and provides stakeholders with immediate, actionable visibility into operational performance.",
+        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=Customer+Operation+Improvement+Platform",
+        tags: ["React", "TypeScript", "Tailwind CSS", "SPA"],
       },
       {
-        title: "AdminHub",
-        description:
-          "Multi-tenant admin panel with RBAC, real-time audit logging, and an API gateway backed by Azure and .NET.",
-        image: "https://placehold.co/1280x800/0f172a/a78bfa?text=AdminHub+—+Web+App",
-        tags: ["React", ".NET", "Azure", "Postgres"],
+        slug: "user-management",
+        title: "User Management",
+        description: "A corporate-wide administrative interface serving as the central core portal for all enterprise applications. The platform streamlines the administration of global user directories, permissions, and infrastructure services to maintain secure, cohesive, and scalable access control across the organization.",
+        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=User+Management",
+        tags: ["React", "TypeScript", "Tailwind CSS"],
       },
       {
-        title: "SalesInsight",
-        description:
-          "Sales funnel and KPI tracking dashboard for enterprise teams with CRM integrations and forecasting models.",
-        image: "https://placehold.co/1280x800/0f172a/fb923c?text=SalesInsight+—+Dashboard",
-        tags: ["React", "Vite", "TypeScript", "PostgreSQL"],
+        slug: "personal-shopping-service",
+        title: "Personal Shopping Service",
+        description: "A comprehensive web application with real-time features and responsive design. This project highlights modern web development practices including server-side rendering, API integration, and complex state management.",
+        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=Personal+Shopping+Service",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+      },
+      {
+        slug: "company-visitor-management-system",
+        title: "Company Visitor Management System",
+        description: "A centralized web application developed to digitize and manage corporate guest logs. By transitioning from traditional, manual paper-based registries to a secure digital ecosystem, the platform significantly streamlines the visitor check-in experience and enhances overall front-desk security tracking.",
+        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=Company+Visitor+Management+System",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS"],
       },
     ],
   },
@@ -66,32 +73,46 @@ const tabs: Tab[] = [
     icon: <MdOutlinePhoneAndroid size={18} />,
     projects: [
       {
-        title: "SmartShop",
-        description:
-          "Cross-platform e-commerce mobile app with real-time inventory tracking, push notifications, and seamless checkout.",
-        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=SmartShop+—+Mobile+App",
-        tags: ["React Native", "Redux", "TypeScript", "Stripe"],
+        slug: "ut-coip-mobile",
+        title: "UT COIP Mobile",
+        description: "A mobile application engineered to deliver a high-performance, seamless user experience. Serving as the dedicated field-facing component of the Customer Operation Improvement Platform, the application replaces manual paper checksheets with a digitized workflow for on-site job creation and data entry. It is designed with robust offline support and integrated push notifications to ensure uninterrupted operations and real-time communication for field personnel.",
+        image: "https://placehold.co/1280x800/0f172a/34d399?text=UT+COIP+Mobile",
+        tags: ["React Native", "Zustand", "Realm", "Tanstack", "Re.pack"],
       },
       {
-        title: "HealthTrack",
-        description:
-          "Mobile health monitoring with wearable device integration, real-time vitals dashboard, and AI-powered insights.",
-        image: "https://placehold.co/1280x800/0f172a/34d399?text=HealthTrack+—+Mobile+App",
-        tags: ["React Native", "Bluetooth API", "GraphQL"],
+        slug: "ut-portal-mobile",
+        title: "UT Portal Mobile",
+        description: "An internal-facing mobile application engineered exclusively for United Tractors employees. The app serves as a secure, centralized corporate hub designed to streamline internal communications, distribute company-wide announcements, and provide staff with direct access to internal resources and operational data.",
+        image: "https://placehold.co/1280x800/0f172a/34d399?text=UT+Portal+Mobile",
+        tags: ["React Native", "Zustand", "Realm", "Re.pack"],
       },
       {
-        title: "TravelMate",
-        description:
-          "Trip planning app with offline maps, collaborative itinerary builder, and smart destination recommendations.",
-        image: "https://placehold.co/1280x800/0f172a/fb923c?text=TravelMate+—+Mobile+App",
-        tags: ["React Native", "Maps API", "Redux"],
+        slug: "ut-connect-mobile",
+        title: "UT Connect Mobile",
+        description: "A dedicated customer-facing mobile application designed as the primary digital touchpoint for United Tractors clients. The platform provides a centralized, accessible hub for customers to seamlessly engage with the company, access essential services, and stay updated on corporate information.",
+        image: "https://placehold.co/1280x800/0f172a/34d399?text=UT+Connect+Mobile",
+        tags: ["React Native", "Zustand", "Re.pack", "Realm", "Firebase"],
       },
       {
-        title: "PayFlow",
-        description:
-          "Digital wallet and payment solution with biometric authentication, transaction history, and P2P transfers.",
-        image: "https://placehold.co/1280x800/0f172a/a78bfa?text=PayFlow+—+Mobile+App",
-        tags: ["React Native", "Biometrics", "Stripe"],
+        slug: "olympiad",
+        title: "Olympiad Apps",
+        description: "Developed a centralized event management platform designed to drive corporate engagement by automating the coordination of internal company sports tournaments. I developed features for dynamic team formation and registration, and integrated the Strava API via webhooks and OAuth authentication to automatically sync employees' fitness activities, feeding real-time data into a high-concurrency team and individual leaderboard system.",
+        image: "https://placehold.co/1280x800/0f172a/34d399?text=Olympiad",
+        tags: ["React Native", "Zustand", "Tanstack"],
+      },
+      {
+        slug: "lite-module-maintenance-management",
+        title: "Lite Module Maintenance Management",
+        description: "A high-availability mobile and web solution designed to streamline heavy equipment operations and maintenance workflows. The platform serves as a comprehensive management tool for tracking daily equipment breakdowns, managing preventative maintenance planning, and overseeing the execution of periodic services to ensure maximum operational uptime.",
+        image: "https://placehold.co/1280x800/0f172a/34d399?text=Lite+Module+Maintenance+Management",
+        tags: ["React Native", "Zustand", "Tanstack"],
+      },
+      {
+        slug: "data-capture-application",
+        title: "Data Capture Application",
+        description: "An offline-first mobile application tailored specifically for heavy equipment mechanics operating in remote mining environments. The application ensures uninterrupted operational continuity by allowing mechanics to perform critical data entry and complete complex safety and maintenance checksheets entirely without network connectivity.",
+        image: "https://placehold.co/1280x800/0f172a/34d399?text=Data+Capture+Application",
+        tags: ["React Native", "Redux", "Realm"],
       },
     ],
   },
@@ -101,45 +122,96 @@ const tabs: Tab[] = [
     icon: <HiOutlineSparkles size={18} />,
     projects: [
       {
-        title: "IntelliDocs",
-        description:
-          "AI-powered document assistant that summarizes, answers questions, and extracts structured data from any PDF or file.",
-        image: "https://placehold.co/1280x800/0f172a/7dd3fc?text=IntelliDocs+—+AI+App",
-        tags: ["Next.js", "OpenAI", "LangChain", "Postgres"],
-      },
-      {
-        title: "CodeReview AI",
-        description:
-          "Automated code review tool powered by LLMs, providing actionable feedback, bug detection, and style suggestions.",
-        image: "https://placehold.co/1280x800/0f172a/34d399?text=CodeReview+—+AI+Tool",
-        tags: ["Next.js", "OpenAI API", "TypeScript", "GitHub API"],
-      },
-      {
-        title: "ChatOps Bot",
-        description:
-          "Intelligent DevOps chatbot integrated with Slack that monitors pipelines, auto-resolves incidents, and reports KPIs.",
-        image: "https://placehold.co/1280x800/0f172a/fb923c?text=ChatOps+—+AI+Bot",
-        tags: ["Node.js", "OpenAI", "Datadog", "Docker"],
-      },
+        slug: "dummy-ai-project",
+        title: "AI Assistant Gamma",
+        description: "Smart AI-powered assistant for automating daily tasks with natural language processing. Built with scalable architecture to handle complex AI workloads and continuous learning pipelines.",
+        image: "https://placehold.co/1280x800/0f172a/fb923c?text=AI+Assistant+Gamma",
+        tags: ["Python", "OpenAI", "LangChain"],
+      }
     ],
   },
 ];
+
+// ─── Sub-Components ────────────────────────────────────────────────────────────
+
+const ProjectFrame = ({ type, proj }: { type: string; proj: Project }) => {
+  if (type === "web") {
+    return (
+      <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-t-2xl overflow-hidden border-b border-gray-200 dark:border-gray-700 transition-colors duration-500">
+        <div className="flex items-center px-4 py-2.5 gap-2 bg-gray-200/80 dark:bg-gray-900/80 border-b border-gray-300 dark:border-gray-800">
+          <div className="flex gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+            <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+            <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+          </div>
+          <div className="flex-1 bg-white/60 dark:bg-black/30 rounded-md h-6 mx-2 flex items-center justify-center px-3 shadow-inner">
+            <span className="text-[11px] text-gray-500 dark:text-gray-400 font-mono tracking-wider opacity-80">portfolio.dev/{proj.title.toLowerCase().replace(/\s+/g, '-')}</span>
+          </div>
+        </div>
+        <div className="relative w-full aspect-video overflow-hidden bg-white dark:bg-black">
+          <Image
+            src={proj.image}
+            alt={proj.title}
+            fill
+            unoptimized
+            className="object-cover object-top transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "mobile") {
+    return (
+      <div className="flex justify-center items-center w-full py-10 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900/80 dark:to-gray-800/80 rounded-t-2xl overflow-hidden relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative w-48 sm:w-56 aspect-[9/19] rounded-[2.5rem] border-[8px] border-gray-800 dark:border-[#1a1b1e] overflow-hidden shadow-2xl bg-black transform group-hover:-translate-y-2 transition-transform duration-500">
+          {/* Mobile Notch */}
+          <div className="absolute top-0 inset-x-0 h-6 bg-gray-800 dark:bg-[#1a1b1e] rounded-b-xl w-[45%] mx-auto z-20 flex justify-center items-center">
+            <div className="w-10 h-1.5 bg-black/60 rounded-full" />
+          </div>
+          <div className="relative w-full h-full">
+            <Image
+              src={proj.image}
+              alt={proj.title}
+              fill
+              unoptimized
+              className="object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // AI Type
+  return (
+    <div className="w-full p-6 bg-[#0a0a0c] rounded-t-2xl border-b border-gray-800 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative w-full aspect-video overflow-hidden rounded-xl border border-gray-700/80 group-hover:border-purple-500/40 transition-colors duration-500 shadow-[0_0_15px_rgba(0,0,0,0.3)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.15)] bg-black">
+        <Image
+          src={proj.image}
+          alt={proj.title}
+          fill
+          unoptimized
+          className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100"
+        />
+        {/* Terminal / Scanning Line Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] pointer-events-none opacity-40 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-cyan-900/10 mix-blend-color" />
+      </div>
+    </div>
+  );
+};
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
 const ProjectSection = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const headerRef = React.useRef(null);
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
 
   const currentTab = tabs.find((t) => t.id === activeTab)!;
-  const activeProject = currentTab.projects[activeProjectIndex];
-
-  const handleTabChange = (tabId: string) => {
-    setActiveTab(tabId);
-    setActiveProjectIndex(0);
-  };
 
   const headerVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -153,56 +225,61 @@ const ProjectSection = () => {
     },
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   return (
-    <section className="px-4 sm:px-6 md:px-12 lg:px-16 font-tomorrow text-gray-800 dark:text-second-light py-16 sm:py-20 md:py-24">
+    <section className="px-4 sm:px-6 md:px-12 lg:px-16 text-gray-800 dark:text-second-light py-16 sm:py-20 md:py-24">
       {/* ── Header ── */}
       <motion.div
         ref={headerRef}
         variants={headerVariants}
         initial="hidden"
         animate={isHeaderInView ? "visible" : "hidden"}
-        className="text-center mb-12 max-w-4xl mx-auto"
+        className="text-center mb-16 max-w-4xl mx-auto"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-dark dark:text-second-light mb-4">
-          My Projects
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-primary-dark dark:text-second-light mb-6">
+          Selected Work
         </h2>
-        <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-          A selection of projects spanning mobile, web, and AI — click a category to explore.
+        <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl lg:text-2xl font-medium max-w-3xl mx-auto leading-relaxed">
+          Showcasing a diverse range of projects. Select a category below to see how I build for different platforms and technologies.
         </p>
-
-        {/* ── In-Development Notice ── */}
-        <div className="mt-6 inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-amber-500/40 bg-amber-400/10 dark:bg-amber-400/5 dark:border-amber-400/30 text-amber-700 dark:text-amber-300 text-sm font-medium">
-          <span className="text-base">🚧</span>
-          <span>
-            This section is currently{" "}
-            <span className="font-semibold text-amber-800 dark:text-amber-200">under development</span>
-            {" "}— real projects will be listed here soon.
-          </span>
-        </div>
       </motion.div>
 
-      <div className="max-w-5xl mx-auto flex flex-col gap-6">
+      <div className="max-w-6xl mx-auto flex flex-col gap-12">
         <div className="flex justify-center">
-          <div className="inline-flex bg-gray-100/5 dark:bg-second-dark border border-gray-400/10 rounded-2xl p-1.5 gap-1 shadow-inner">
+          <div className="inline-flex bg-gray-100/50 dark:bg-second-dark/80 border border-gray-200 dark:border-gray-800 rounded-2xl p-1.5 gap-1 shadow-sm backdrop-blur-md">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => handleTabChange(tab.id)}
+                onClick={() => setActiveTab(tab.id)}
                 className={`
-                  relative flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold
-                  transition-all duration-200
+                  relative flex items-center gap-2.5 px-6 py-3.5 rounded-[14px] text-sm md:text-base font-semibold
+                  transition-all duration-300
                   ${
                     activeTab === tab.id
-                      ? "text-white shadow-md"
-                      : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-second-light"
+                      ? "text-primary-dark dark:text-second-light shadow-md"
+                      : "text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-gray-200"
                   }
                 `}
               >
                 {activeTab === tab.id && (
                   <motion.span
-                    layoutId="activeTabBg"
-                    className="absolute inset-0 rounded-xl bg-sky-500"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    layoutId="activeTabIndicator"
+                    className="absolute inset-0 rounded-[14px] bg-white dark:bg-gray-700/60"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
                 <span className="relative z-10 flex items-center gap-2">
@@ -214,134 +291,43 @@ const ProjectSection = () => {
           </div>
         </div>
 
-        {/* ── Browser Chrome Frame ── */}
-        <div className="rounded-2xl overflow-hidden border border-gray-400/10 shadow-2xl">
-          {/* Title Bar */}
-          <div className="flex items-center gap-3 px-4 py-3 bg-gray-200/30 dark:bg-[#151922] border-b border-gray-400/10">
-            <div className="flex gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-red-400/80" />
-              <span className="w-3 h-3 rounded-full bg-yellow-400/80" />
-              <span className="w-3 h-3 rounded-full bg-green-400/80" />
-            </div>
-            <div className="flex-1 flex items-center bg-gray-100/10 dark:bg-[#0d111a] rounded-md px-3 py-1 gap-2">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 text-gray-400 flex-shrink-0">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={`${activeTab}-${activeProjectIndex}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-xs text-gray-500 dark:text-gray-400 truncate font-mono"
-                >
-                  portfolio.dev/{activeTab}/{activeProject.title.toLowerCase().replace(/\s+/g, "-")}
-                </motion.span>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Image Preview */}
-          <div className="relative w-full aspect-video overflow-hidden bg-[#0d111a]">
-            <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full"
+        >
+          {currentTab.projects.map((proj, idx) => (
+            <Link href={`/project/${proj.slug}`} key={idx} className="block group">
               <motion.div
-                key={`${activeTab}-${activeProjectIndex}`}
-                initial={{ opacity: 0, scale: 1.03 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="absolute inset-0"
+                variants={itemVariants}
+                className="relative flex flex-col h-full bg-white dark:bg-second-dark border border-gray-200 dark:border-gray-800/60 rounded-2xl shadow-sm group-hover:shadow-xl group-hover:border-gray-300 dark:group-hover:border-gray-700 transition-all duration-500 overflow-hidden"
               >
-                <Image
-                  src={activeProject.image}
-                  alt={activeProject.title}
-                  fill
-                  unoptimized
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-            </AnimatePresence>
-
-            {/* ── Watermark ── */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <span
-                className="rotate-[-35deg] select-none text-3xl md:text-5xl font-black tracking-widest uppercase px-6 py-3 rounded-2xl"
-                style={{
-                  color: "rgba(251,191,36,0.18)",
-                  border: "3px solid rgba(251,191,36,0.15)",
-                  background: "rgba(0,0,0,0.25)",
-                  textShadow: "0 2px 16px rgba(251,191,36,0.18)",
-                  letterSpacing: "0.25em",
-                }}
-              >
-                On Develop
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Project Info + Switcher ── */}
-        <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
-          {/* Project Details */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${activeTab}-${activeProjectIndex}-info`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="flex-1 min-w-0 w-full"
-            >
-              <h3 className="text-xl md:text-2xl font-bold text-primary-dark dark:text-second-light mb-2">
-                {activeProject.title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                {activeProject.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {activeProject.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-1 text-xs font-semibold rounded-full bg-sky-500/10 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/30 dark:border-sky-500/25"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Project Switcher */}
-          {currentTab.projects.length > 1 && (
-            <div className="w-full sm:w-auto flex flex-row sm:flex-col gap-2 overflow-x-auto sm:overflow-visible flex-shrink-0 sm:min-w-[180px] pb-2 sm:pb-0">
-              <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 font-semibold uppercase tracking-widest mb-1 pl-1">
-                Projects
-              </p>
-              {currentTab.projects.map((proj, idx) => (
-                <button
-                  key={proj.title}
-                  onClick={() => setActiveProjectIndex(idx)}
-                  className={`
-                    flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium
-                    transition-all duration-200 whitespace-nowrap flex-shrink-0 text-left
-                    ${
-                      activeProjectIndex === idx
-                        ? "bg-gray-900/10 dark:bg-gray-100/10 text-gray-900 dark:text-second-light border border-gray-400/30 dark:border-gray-400/20"
-                        : "text-gray-500 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300 hover:bg-gray-900/5 dark:hover:bg-gray-100/5 border border-transparent"
-                    }
-                  `}
-                >
-                  {activeProjectIndex === idx && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400 flex-shrink-0" />
-                  )}
+              <ProjectFrame type={activeTab} proj={proj} />
+              
+              <div className="flex flex-col flex-1 p-8 sm:p-10">
+                <h3 className="text-2xl sm:text-3xl font-bold text-primary-dark dark:text-second-light mb-4 tracking-tight">
                   {proj.title}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed mb-8 flex-1">
+                  {proj.description}
+                </p>
+                <div className="flex flex-wrap gap-2.5 mt-auto">
+                  {proj.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              </motion.div>
+            </Link>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

@@ -72,38 +72,38 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
               {/* Outer tail with gradient */}
               <div className={`absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 w-4 h-4 rotate-45 bg-gradient-to-r ${gradient} z-0 hidden md:block`} />
               {/* Inner tail with card background */}
-              <div className="absolute top-1/2 -translate-y-1/2 right-[1.5px] translate-x-1/2 w-[13px] h-[13px] rotate-45 bg-gray-50 dark:bg-[#121316] z-0 transition-colors duration-500 hidden md:block" />
+              <div className="absolute top-1/2 -translate-y-1/2 right-[1.5px] translate-x-1/2 w-[13px] h-[13px] rotate-45 bg-gray-50 dark:bg-second-dark z-0 transition-colors duration-500 hidden md:block" />
             </>
           ) : (
             <>
               {/* Outer tail with gradient */}
               <div className={`absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/2 w-4 h-4 rotate-45 bg-gradient-to-r ${gradient} z-0 hidden md:block`} />
               {/* Inner tail with card background */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-[1.5px] -translate-x-1/2 w-[13px] h-[13px] rotate-45 bg-gray-50 dark:bg-[#121316] z-0 transition-colors duration-500 hidden md:block" />
+              <div className="absolute top-1/2 -translate-y-1/2 left-[1.5px] -translate-x-1/2 w-[13px] h-[13px] rotate-45 bg-gray-50 dark:bg-second-dark z-0 transition-colors duration-500 hidden md:block" />
             </>
           )}
 
           {/* Card Content Container */}
-          <div className="relative bg-gray-50 dark:bg-[#121316] rounded-[22px] p-6 sm:p-8 text-primary-dark dark:text-second-light h-full w-full transition-colors duration-500 z-10">
+          <div className="relative bg-gray-50 dark:bg-second-dark rounded-[22px] p-6 sm:p-8 text-primary-dark dark:text-second-light h-full w-full transition-colors duration-500 z-10">
             {/* Top Date Badge */}
             <div className="flex justify-between items-start mb-4">
-              <span className="text-[11px] sm:text-xs font-semibold tracking-wider opacity-80 uppercase font-mono px-3 py-1 bg-gray-200/50 dark:bg-[#1c1d24] rounded-full text-primary-dark dark:text-sky-400 border border-gray-300/40 dark:border-gray-800">
+              <span className="text-[11px] sm:text-xs font-bold tracking-wider opacity-80 uppercase font-mono px-3 py-1 bg-gray-200/50 dark:bg-[#2c2c2e] rounded-full text-primary-dark dark:text-sky-400 border border-gray-300/40 dark:border-gray-800">
                 {date}
               </span>
             </div>
 
             {/* Company Name */}
-            <h3 className="text-xl sm:text-2xl font-bold mb-1 font-tomorrow tracking-tight text-primary-dark dark:text-gray-50">
+            <h3 className="text-xl sm:text-2xl font-bold mb-1 tracking-tight text-primary-dark dark:text-second-light">
               {company}
             </h3>
 
             {/* Job Role */}
-            <h4 className="text-sm sm:text-base font-semibold text-sky-500 dark:text-sky-400 mb-4 font-tomorrow">
+            <h4 className="text-sm sm:text-base font-semibold text-sky-500 dark:text-sky-400 mb-4">
               {role}
             </h4>
 
             {/* Job Description */}
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-50 leading-relaxed font-sans font-medium">
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
               {description}
             </p>
           </div>
@@ -115,7 +115,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 
       {/* Center Dot */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center">
-        <div className="w-5 h-5 rounded-full bg-sky-500 border-4 border-white dark:border-[#121316] shadow-md transition-colors duration-500" />
+        <div className="w-5 h-5 rounded-full bg-sky-500 border-4 border-white dark:border-primary-dark shadow-md transition-colors duration-500" />
       </div>
 
     </div>

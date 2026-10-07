@@ -76,7 +76,7 @@ const ServiceList: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0"
+      className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
     >
       {services.map((service, index) => {
         const Icon = service.icon;
@@ -84,13 +84,16 @@ const ServiceList: React.FC = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="dark:text-second-light text-primary-dark p-8 dark:border-second-light border border-primary-dark hover:bg-gray-300 dark:hover:bg-second-dark transition-colors duration-300"
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="group relative flex flex-col bg-white dark:bg-second-dark border border-gray-200 dark:border-gray-800/60 shadow-sm hover:shadow-xl rounded-2xl p-8 transition-all duration-300 overflow-hidden"
           >
-            <Icon className="text-4xl mb-4 text-primary-dark dark:text-second-light" />
-            <h3 className="font-tomorrow font-bold text-xl mb-3">{service.title}</h3>
-            <p className="font-mono text-sm leading-relaxed opacity-80">{service.description}</p>
+            <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-sky-500/10 dark:from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative z-10 flex items-center justify-center w-14 h-14 bg-gray-50 dark:bg-[#252528] rounded-2xl mb-6 shadow-sm border border-gray-100 dark:border-gray-700/50 group-hover:rotate-3 transition-transform duration-300 text-sky-500 dark:text-sky-400 text-2xl">
+              <Icon />
+            </div>
+            <h3 className="relative z-10 font-bold text-xl sm:text-2xl mb-3 text-primary-dark dark:text-second-light tracking-tight">{service.title}</h3>
+            <p className="relative z-10 text-gray-500 dark:text-gray-400 font-medium leading-relaxed">{service.description}</p>
           </motion.div>
         );
       })}

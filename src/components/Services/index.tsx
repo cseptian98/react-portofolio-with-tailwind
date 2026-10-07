@@ -22,17 +22,17 @@ export const ServiceSection = () => {
 
   return (
     <div ref={ref} className="py-16 sm:py-20 md:py-24">
-      <div className="flex flex-col gap-12 md:gap-16 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto font-tomorrow">
+      <div className="flex flex-col gap-12 md:gap-16 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
         <motion.div
           variants={headerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="w-full text-center text-primary-dark dark:text-second-light"
         >
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h3 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
             Services I am Providing
           </h3>
-          <p className="mt-4 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-4 text-lg sm:text-xl md:text-2xl font-medium text-gray-500 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
             I build custom web and mobile applications tailored to your business needs, using modern and scalable technologies.
           </p>
         </motion.div>
