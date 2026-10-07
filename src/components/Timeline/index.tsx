@@ -55,7 +55,7 @@ export const ExperienceTimeline = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isLogosInView ? "visible" : "hidden"}
-        className="flex flex-wrap justify-center items-center gap-12 rounded-2xl bg-gray-50 dark:bg-second-dark border border-gray-200 dark:border-gray-800/40 py-8 px-6 sm:px-12 my-8 transition-colors duration-500 max-w-6xl mx-auto"
+        className="flex flex-wrap justify-center items-center gap-12 rounded-2xl bg-gray-50 dark:bg-gray-500 border border-gray-200 dark:border-gray-800/40 py-8 px-6 sm:px-12 my-8 transition-colors duration-500 max-w-6xl mx-auto"
       >
         {[
           { alt: "united-tractors", src: ut, width: 220 },
