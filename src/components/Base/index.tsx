@@ -19,7 +19,7 @@ const Home = ({ darkMode = false, setDarkMode = () => {} }: HomeProps) => {
       <Head>
         <title>Chandra Septian - Portfolio</title>
         <meta name="description" content="My Portfolio Page" />
-        <link rel="icon" href="/Profile-Circular.jpg" />
+        <link rel="icon" href="/Profile-Circular.png" />
       </Head>
 
       <header>
