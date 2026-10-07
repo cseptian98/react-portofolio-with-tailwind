@@ -18,8 +18,8 @@ const TypingText = () => {
 
   useEffect(() => {
     let currentIndex = 0
-    let typingInterval
-    let resetTimeout
+    let typingInterval: ReturnType<typeof setInterval>
+    let resetTimeout: ReturnType<typeof setTimeout>
 
     const startTyping = () => {
       currentIndex = 0
