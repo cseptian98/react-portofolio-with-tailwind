@@ -1,39 +1,14 @@
-import TechnologySection from "@/components/Footer/Technologies";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
-
-const techList = [
-  { alt: "React", src: "/icons/react.svg" },
-  { alt: "TypeScript", src: "/icons/typescript.svg" },
-  { alt: "Next.js", src: "/icons/next-js.svg" },
-  { alt: "Vite", src: "/icons/vitejs.svg" },
-  { alt: "Astro", src: "/icons/astrojs.svg" },
-  { alt: "TanStack", src: "/icons/tanstack.svg" },
-  { alt: "React Native", src: "/icons/react-native.svg" },
-  { alt: "Docker", src: "/icons/docker.svg" },
-  { alt: "Kubernetes", src: "/icons/kubernetes.svg" },
-  { alt: "Azure", src: "/icons/azure.svg" },
-  { alt: "Terraform", src: "/icons/terraform.svg" },
-  { alt: "GitHub", src: "/icons/github.svg" },
-  { alt: "Golang", src: "/icons/golang.svg" },
-  { alt: "MongoDB", src: "/icons/mongodb.svg" },
-  { alt: "Postman", src: "/icons/postman.svg" },
-  { alt: "Datadog", src: "/icons/datadog.svg" },
-  { alt: "Claude", src: "/icons/anthropic.svg" },
-  { alt: "NotebookLM", src: "/icons/notebooklm.svg" },
-  { alt: "Hermes Agent", src: "/icons/hermes-icon.svg" },
-];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer>
-      <TechnologySection technologies={techList} />
-
-      <div className="max-w-7xl mx-auto">
-        <div className="border-t border-gray-400/10 dark:border-gray-800/40 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <footer className="w-full bg-second-light dark:bg-primary-dark transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+        <div className="border-t border-gray-200 dark:border-gray-800 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left transition-colors duration-300">
           {/* Trademark and year */}
-          <div className="text-gray-500 dark:text-gray-400 text-sm font-tomorrow">
+          <div className="text-gray-500 dark:text-gray-400 text-sm font-medium">
             <span>&copy; {currentYear} Chandra Septian. All rights reserved.</span>
           </div>
 
@@ -43,7 +18,7 @@ const Footer = () => {
               href="https://github.com/cseptian98"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary-light hover:scale-110 transition-all duration-300"
+              className="hover:text-primary-light dark:hover:text-second-light hover:scale-110 transition-all duration-300"
               aria-label="GitHub"
             >
               <AiFillGithub />
@@ -52,7 +27,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/cseptian/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary-light hover:scale-110 transition-all duration-300"
+              className="hover:text-primary-light dark:hover:text-second-light hover:scale-110 transition-all duration-300"
               aria-label="LinkedIn"
             >
               <AiFillLinkedin />
@@ -61,7 +36,7 @@ const Footer = () => {
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary-light hover:scale-110 transition-all duration-300"
+              className="hover:text-primary-light dark:hover:text-second-light hover:scale-110 transition-all duration-300"
               aria-label="Instagram"
             >
               <AiFillInstagram />
