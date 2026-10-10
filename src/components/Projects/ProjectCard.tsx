@@ -12,7 +12,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, co
     <div className="flex justify-between items-center text-second-light gap-8">
       <div className="flex-1">
         <h3 className="text-xl font-bold">{title}</h3>
-        <p className="max-w-md">{description}</p>
+        <p className="max-w-md text-justify">{description}</p>
       </div>
       <Image src={image} alt={title} className="rounded-lg w-96 h-auto" />
       <p className="text-xl font-semibold text-second-light">{count}</p>
