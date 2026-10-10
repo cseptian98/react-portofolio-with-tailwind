@@ -93,7 +93,7 @@ const ServiceList: React.FC = () => {
               <Icon />
             </div>
             <h3 className="relative z-10 font-bold text-xl sm:text-2xl mb-3 text-primary-dark dark:text-second-light tracking-tight">{service.title}</h3>
-            <p className="relative z-10 text-gray-500 dark:text-gray-400 font-medium leading-relaxed">{service.description}</p>
+            <p className="relative z-10 text-gray-500 dark:text-gray-400 font-medium leading-relaxed text-justify">{service.description}</p>
           </motion.div>
         );
       })}

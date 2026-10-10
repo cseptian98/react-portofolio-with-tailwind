@@ -103,7 +103,7 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="min-h-[80vh] flex items-center justify-center py-16 sm:py-20 md:py-24"
+      className="min-h-[80vh] flex items-center justify-center py-16 sm:py-20 md:py-32"
     >
       <motion.div
         variants={containerVariants}
@@ -141,9 +141,9 @@ const HeroSection = () => {
 
           <motion.div
             variants={itemVariants}
-            className="w-full flex items-center justify-center mt-6"
+            className="w-full flex items-center text-justify mt-6"
           >
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-500 dark:text-gray-400 text-center leading-relaxed w-full tracking-tight">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-500 dark:text-gray-400 leading-relaxed w-full tracking-tight">
               A Software Engineer with 7+ years of experience in building and
               scaling software solutions, with the past 2 years focused on
               leading teams and driving technical strategy. Working well in both

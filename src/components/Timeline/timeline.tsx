@@ -20,7 +20,7 @@ export const Timeline = ({ timeline }: TimelineProps) => {
               <span className="timeline-date">{exp.time}</span>
               <p className="timeline-company">{exp.company}</p>
               <p className="timeline-title">{exp.title}</p>
-              <p className="text-color">{exp.description}</p>
+              <p className="text-color text-justify">{exp.description}</p>
             </div>
           </div>
         );

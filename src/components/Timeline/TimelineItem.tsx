@@ -103,7 +103,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
             </h4>
 
             {/* Job Description */}
-            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium text-justify">
               {description}
             </p>
           </div>

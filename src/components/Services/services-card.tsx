@@ -28,7 +28,7 @@ export const ServiceCard = () => {
               {service.title}
             </h3>
             
-            <p className="relative z-10 text-gray-500 dark:text-gray-400 font-medium leading-relaxed mb-8 flex-1">
+            <p className="relative z-10 text-gray-500 dark:text-gray-400 font-medium leading-relaxed mb-8 flex-1 text-justify">
               {service.description}
             </p>
             
